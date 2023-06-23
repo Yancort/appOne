@@ -7,14 +7,14 @@
     tools:context=".MainActivity2">
 
     <RelativeLayout
-        android:layout_width="425dp"
-        android:layout_height="608dp"
-        tools:context=".MainActivity">
+        android:layout_width="match_parent"
+        android:layout_height="637dp"
+        tools:context=".MainActivity2">
 
         <WebView
             android:id="@+id/miWebView"
-            android:layout_width="410dp"
-            android:layout_height="590dp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </RelativeLayout>
 
     <Button

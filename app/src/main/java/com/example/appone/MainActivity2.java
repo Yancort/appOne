@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.webkit.WebSettings;
@@ -12,11 +14,14 @@ import android.webkit.WebView;
 
 public class MainActivity2 extends AppCompatActivity {
 
+    private GestureDetector gDetector;
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        gDetector = new GestureDetector(this, new MainActivity2.ObtieneGestos());
 
         WebView myWebView = findViewById(R.id.miWebView);
         WebSettings webSettings = myWebView.getSettings();
@@ -46,9 +51,9 @@ public class MainActivity2 extends AppCompatActivity {
     private String generateDataUrl(String urlVideo) {
         return "<html>" +
                 "<body>" +
-                "<h2>Video desde YouTube</h2>" +
+                "<center><h1>3 Ejercicios Fundamentales Para El Pecho</h1></center>" +
                 "<br>" +
-                "<iframe width=\"660\" height=\"415\" src=\"" + urlVideo + "\" frameborder=\"0\" allowfullscreen/>" +
+                "<iframe width=\"100%\" height=\"90%\" src=\"" + urlVideo + "\" frameborder=\"0\" allowfullscreen/>" +
                 "</body>" +
                 "</html>";
     }
@@ -61,5 +66,30 @@ public class MainActivity2 extends AppCompatActivity {
     private void openActivity3() {
         Intent intento = new Intent(this, MainActivity3.class);
         startActivity(intento);
+    }
+
+    public boolean onTouchEvent(MotionEvent event){
+        this.gDetector.onTouchEvent(event);
+        return super.onTouchEvent(event);
+    }
+    private class ObtieneGestos extends GestureDetector.SimpleOnGestureListener {
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY){
+            float ancho = Math.abs(e2.getX() - e1.getX());
+            float alto = Math.abs(e2.getY() - e1.getY());
+
+            if(ancho > alto){
+                if(e2.getX() > e1.getX()){
+                    openActivity1();
+                } else{
+                    openActivity3();
+                }
+            } else{
+                return false;
+            }
+
+            return false;
+        }
     }
 }

@@ -6,22 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
+
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout2"
+        android:layout_width="494dp"
+        android:layout_height="467dp"
         tools:context=".MainActivity2">
 
         <WebView
             android:id="@+id/miWebView"
             android:layout_width="match_parent"
-            android:layout_height="648dp" />
-    </RelativeLayout>
+            android:layout_height="match_parent" />
+
+    </RelativeLayout
+        >
 
     <Button
         android:id="@+id/button"
-        android:layout_width="192dp"
-        android:layout_height="59dp"
-        android:text="Button"
+        android:layout_width="175dp"
+        android:layout_height="56dp"
+        android:text="Previo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,9 +35,9 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="192dp"
+        android:layout_width="164dp"
         android:layout_height="59dp"
-        android:text="Button"
+        android:text="Siguiente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -67,5 +71,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="444dp"
+        android:layout_height="82dp"
+        android:text="Aqui podemos observar 3 ejercicios para pecho"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        app:layout_constraintVertical_bias="0.5"
+        tools:layout_editor_absoluteX="35dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.appone;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,17 +25,41 @@ public class MainActivity2 extends AppCompatActivity {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
 
-        String miUrlVideoYouTube = "https://www.youtube.com/watch?v=-So9LQNpD2M";
+        String miUrlVideoYouTube = "https://www.youtube.com/embed/3IwHoFNQUo8";
         String dataUrl = generateDataUrl(miUrlVideoYouTube);
         myWebView.loadData(dataUrl, "text/html", "utf-8");
+
+        final Button buttonConstrainNext = findViewById(R.id.button);
+        buttonConstrainNext.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View y) {
+                openActivity1();
+            }
+        });
+
+        final Button buttonConstrainPrev = findViewById(R.id.button2);
+        buttonConstrainPrev.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View z) {
+                openActivity3();
+            }
+        });
     }
     private String generateDataUrl(String urlVideo) {
         return "<html>" +
                 "<body>" +
                 "<h2>Video desde YouTube</h2>" +
                 "<br>" +
-                "<iframe width=\"560\" height=\"315\" src=\"" + urlVideo + "\" frameborder=\"0\" allowfullscreen/>" +
+                "<iframe width=\"660\" height=\"415\" src=\"" + urlVideo + "\" frameborder=\"0\" allowfullscreen/>" +
                 "</body>" +
                 "</html>";
+    }
+
+    private void openActivity1() {
+        Intent intento = new Intent(this, MainActivity.class);
+        startActivity(intento);
+    }
+
+    private void openActivity3() {
+        Intent intento = new Intent(this, MainActivity3.class);
+        startActivity(intento);
     }
 }
